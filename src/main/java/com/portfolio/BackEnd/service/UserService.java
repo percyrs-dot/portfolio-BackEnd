@@ -5,7 +5,7 @@ import com.portfolio.BackEnd.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class UserService implements IUserService {
@@ -32,7 +32,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public Optional<User> findUser(Long id) {
-        return userRepo.findById(id);
+    public User findUser(Long id) {
+        return userRepo.findById(id).orElse(null);
     }
 }

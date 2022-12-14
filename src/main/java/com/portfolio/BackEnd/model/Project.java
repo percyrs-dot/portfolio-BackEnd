@@ -3,26 +3,26 @@ package com.portfolio.BackEnd.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Getter
 @Setter
 @Entity
-public class Education {
+public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String title;
-    private Long timeStart;
-    private Long timeEnd;
-    private String location;
+    private String description;
+    private Long year;
     private String img;
     private String url;
 
-
-    public Education() {
+    public Project() {
     }
 
     public Long getId() {
@@ -41,36 +41,20 @@ public class Education {
         this.name = name;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Long getTimeStart() {
-        return timeStart;
+    public Long getYear() {
+        return year;
     }
 
-    public void setTimeStart(Long timeStart) {
-        this.timeStart = timeStart;
-    }
-
-    public Long getTimeEnd() {
-        return timeEnd;
-    }
-
-    public void setTimeEnd(Long timeEnd) {
-        this.timeEnd = timeEnd;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
+    public void setYear(Long year) {
+        this.year = year;
     }
 
     public String getImg() {

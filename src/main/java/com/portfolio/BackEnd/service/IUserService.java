@@ -3,7 +3,6 @@ package com.portfolio.BackEnd.service;
 import com.portfolio.BackEnd.model.User;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IUserService {
 
@@ -13,5 +12,5 @@ public interface IUserService {
 
     void deleteUser(Long id);
 
-    Optional<User> findUser(Long id);
+    User findUser(Long id);
 }

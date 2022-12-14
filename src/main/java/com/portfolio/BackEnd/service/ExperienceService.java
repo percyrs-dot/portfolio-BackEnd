@@ -5,7 +5,6 @@ import com.portfolio.BackEnd.repository.ExperienceRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ExperienceService implements IExperienceService {
@@ -32,7 +31,7 @@ public class ExperienceService implements IExperienceService {
     }
 
     @Override
-    public Optional<Experience> findExperience(Long id) {
-        return expRepo.findById(id);
+    public Experience findExperience(Long id) {
+        return expRepo.findById(id).orElse(null);
     }
 }

@@ -1,11 +1,11 @@
 package com.portfolio.BackEnd.service;
 
+
 import com.portfolio.BackEnd.model.Education;
 import com.portfolio.BackEnd.repository.EducationRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EducationService implements IEducationService {
@@ -32,7 +32,8 @@ public class EducationService implements IEducationService {
     }
 
     @Override
-    public Optional<Education> findEducation(Long id) {
-        return eduRepo.findById(id);
+    public Education findEducation(Long id) {
+        return eduRepo.findById(id).orElse(null);
     }
+
 }

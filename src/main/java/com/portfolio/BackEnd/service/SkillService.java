@@ -5,7 +5,6 @@ import com.portfolio.BackEnd.repository.SkillRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class SkillService implements ISkillService {
@@ -32,7 +31,7 @@ public class SkillService implements ISkillService {
     }
 
     @Override
-    public Optional<Skill> findSkill(Long id) {
-        return skillRepo.findById(id);
+    public Skill findSkill(Long id) {
+        return skillRepo.findById(id).orElse(null);
     }
 }

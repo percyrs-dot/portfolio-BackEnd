@@ -3,7 +3,6 @@ package com.portfolio.BackEnd.service;
 import com.portfolio.BackEnd.model.Experience;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IExperienceService {
 
@@ -13,5 +12,5 @@ public interface IExperienceService {
 
     void deleteExperience(Long id);
 
-    Optional<Experience> findExperience(Long id);
+    Experience findExperience(Long id);
 }
