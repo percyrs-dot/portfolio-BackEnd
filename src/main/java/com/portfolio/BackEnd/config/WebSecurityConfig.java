@@ -24,16 +24,17 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-
 public class WebSecurityConfig {
+
 
     @Bean
     public InMemoryUserDetailsManager users() {
         return new InMemoryUserDetailsManager(
-                User.withUsername("percyers")
+                User.withUsername("admin")
                         .password("{noop}.adm12345!")
-                        .authorities("read")
+                        .authorities("all")
                         .build()
+
         );
     }
 
@@ -46,14 +47,17 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
+                .cors().and()
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests(auth -> auth
-                        .requestMatchers(req-> req.getRequestURI().contains("get")).permitAll()
+                        .requestMatchers(req -> req.getRequestURI().contains("get")).permitAll()
+                        .requestMatchers(req -> req.getRequestURI().contains("auth")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .httpBasic(Customizer.withDefaults())
+                .headers(headers -> headers.frameOptions().sameOrigin())
                 .build();
     }
 

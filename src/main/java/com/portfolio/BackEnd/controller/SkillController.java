@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class SkillController {
 
@@ -45,6 +46,7 @@ public class SkillController {
         } else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
 
     @DeleteMapping("/skill/delete/{id}")
     public void deleteSkill(@PathVariable Long id) {
