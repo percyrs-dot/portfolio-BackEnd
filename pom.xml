@@ -81,8 +81,8 @@
 			<version>9.25.6</version>
 		</dependency>
 	</dependencies>
-
 	<build>
+		<pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -98,6 +98,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		</pluginManagement>
 	</build>
 
 </project>
