@@ -8,7 +8,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @EnableConfigurationProperties(RsaKeyProperties.class)
 @SpringBootApplication
 public class BackEndApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(BackEndApplication.class, args);
 	}
